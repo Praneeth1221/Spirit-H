@@ -1,0 +1,441 @@
+/* Custom Properties / Design Tokens */
+:root {
+    --bg-page: #ffffff;
+    --text-primary: #ff8400;
+    --text-secondary: #64748b;
+    --text-muted: #8e8e93;
+    --brand-black: #ff8400;
+    --card-bg-start: #ff8400;
+    --card-bg-end: #09090a;
+    --border-light: #eeeeee;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-logo: 'Cinzel', 'Playfair Display', serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --transition-smooth: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Single-Viewport Lock */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    width: 100vw;
+    height: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden; /* Guaranteed no scrolling on all screens */
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: max(6px, env(safe-area-inset-top, 6px)) 16px max(10px, env(safe-area-inset-bottom, 10px)) 16px;
+}
+
+.page-container {
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 0;
+}
+
+/* Header Section */
+.header {
+    width: 100%;
+    text-align: center;
+    padding-top: clamp(2px, 0.8vh, 10px);
+    padding-bottom: clamp(4px, 0.8vh, 8px);
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    font-family: var(--font-logo);
+    font-size: clamp(1.35rem, 3.8vh, 1.95rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--brand-black);
+    text-transform: uppercase;
+    user-select: none;
+    line-height: 1;
+}
+
+.header-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-light);
+    margin-top: clamp(6px, 1.2vh, 12px);
+}
+
+/* Main Content Area */
+.main-content {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: clamp(4px, 1vh, 12px);
+    min-height: 0;
+}
+
+.card-offer-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    min-height: 0;
+}
+
+/* Eyebrow Badge */
+.badge-eyebrow {
+    font-size: clamp(0.65rem, 1.5vh, 0.74rem);
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: #8b8b92;
+    text-transform: uppercase;
+    margin-bottom: clamp(1px, 0.4vh, 4px);
+    display: inline-block;
+}
+
+/* Main Heading */
+.main-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.35rem, 3.6vh, 2.05rem);
+    font-weight: 600;
+    color: #111111;
+    line-height: 1.2;
+    margin-bottom: clamp(2px, 0.5vh, 6px);
+    letter-spacing: -0.01em;
+    padding: 0 4px;
+}
+
+/* Sub-heading */
+.sub-heading {
+    font-size: clamp(0.8rem, 1.9vh, 0.95rem);
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-bottom: clamp(6px, 1.4vh, 14px);
+    line-height: 1.35;
+}
+
+/* Digital Card Component */
+.digital-card-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: clamp(4px, 1vh, 12px) 0;
+    perspective: 1000px;
+    flex-shrink: 1;
+    min-height: 0;
+}
+
+.digital-card {
+    position: relative;
+    width: 100%;
+    max-width: clamp(250px, 80vw, 420px);
+    aspect-ratio: 1.58 / 1;
+    max-height: clamp(160px, 27vh, 240px);
+    background: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
+    border-radius: clamp(12px, 3.2vw, 20px);
+    padding: clamp(12px, 2.2vh, 22px) clamp(16px, 4vw, 26px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 
+        0 12px 28px -6px rgba(0, 0, 0, 0.35),
+        0 4px 10px -2px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.digital-card:hover,
+.digital-card:active {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 
+        0 18px 36px -8px rgba(0, 0, 0, 0.4),
+        0 6px 14px -4px rgba(0, 0, 0, 0.25);
+}
+
+/* Dynamic Card Light Sweep Effect */
+.card-shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.03) 45%,
+        rgba(255, 255, 255, 0.12) 50%,
+        rgba(255, 255, 255, 0.03) 55%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    pointer-events: none;
+    animation: shineSweep 7s infinite ease-in-out;
+}
+
+@keyframes shineSweep {
+    0% { transform: translateY(-100%) rotate(30deg); }
+    30%, 100% { transform: translateY(100%) rotate(30deg); }
+}
+
+/* Card Top Row */
+.card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-brand {
+    font-family: var(--font-logo);
+    font-size: clamp(0.85rem, 2.4vh, 1.1rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #ffffff;
+}
+
+.card-reward-label {
+    font-size: clamp(0.5rem, 1.3vh, 0.62rem);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #a1a1aa;
+    text-align: right;
+    line-height: 1.25;
+}
+
+/* Card Body */
+.card-body {
+    text-align: left;
+    margin-top: 2px;
+}
+
+.reward-value-title {
+    display: block;
+    font-size: clamp(0.52rem, 1.4vh, 0.65rem);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: #a1a1aa;
+    margin-bottom: 1px;
+}
+
+.reward-amount {
+    font-family: var(--font-serif);
+    font-size: clamp(2.3rem, 6.5vh, 3.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+/* Card Footer Row */
+.card-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-type {
+    font-size: clamp(0.58rem, 1.5vh, 0.68rem);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: #d4d4d8;
+}
+
+.bag-icon-badge {
+    width: clamp(26px, 4.2vh, 34px);
+    height: clamp(26px, 4.2vh, 34px);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transition: var(--transition-smooth);
+}
+
+.bag-icon-badge svg {
+    width: clamp(13px, 2.2vh, 16px);
+    height: clamp(13px, 2.2vh, 16px);
+}
+
+.digital-card:hover .bag-icon-badge {
+    background-color: rgba(255, 255, 255, 0.22);
+    transform: scale(1.06);
+}
+
+/* How It Works Section */
+.how-it-works-section {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.section-title {
+    font-size: clamp(0.68rem, 1.5vh, 0.76rem);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: #8b8b92;
+    text-transform: uppercase;
+    margin-bottom: clamp(6px, 1.2vh, 14px);
+    text-align: left;
+}
+
+/* Steps List */
+.steps-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(4px, 1vh, 10px);
+    margin-bottom: clamp(8px, 1.6vh, 16px);
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 3vw, 14px);
+}
+
+.step-number {
+    width: clamp(24px, 3.4vh, 28px);
+    height: clamp(24px, 3.4vh, 28px);
+    border-radius: 50%;
+    background-color: #ff8400;
+    color: #ffffff;
+    font-size: clamp(0.78rem, 1.7vh, 0.88rem);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.step-text {
+    font-size: clamp(0.85rem, 2vh, 0.98rem);
+    font-weight: 700;
+    color: #0d0d0d;
+    line-height: 1.3;
+}
+
+/* CTA Wrapper & Button */
+.cta-wrapper {
+    width: 100%;
+    margin-bottom: clamp(4px, 0.8vh, 8px);
+}
+
+.cta-button {
+    width: 100%;
+    min-height: clamp(42px, 5.5vh, 50px);
+    background-color: #ff8400;
+    color: #ffffff;
+    border: none;
+    padding: clamp(10px, 1.4vh, 14px) 18px;
+    font-family: var(--font-sans);
+    font-size: clamp(0.78rem, 1.8vh, 0.88rem);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    touch-action: manipulation;
+}
+
+.cta-button:hover {
+    background-color: #1a1a1a;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-1px);
+}
+
+.cta-button:active {
+    transform: translateY(1px) scale(0.99);
+    background-color: #222222;
+}
+
+.btn-arrow {
+    font-size: 1rem;
+    transition: transform 0.25s ease;
+}
+
+.cta-button:hover .btn-arrow,
+.cta-button:active .btn-arrow {
+    transform: translateX(4px);
+}
+
+/* Spinner loading indicator */
+.spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.cta-button.loading .btn-arrow {
+    display: none;
+}
+
+.cta-button.loading .spinner {
+    display: inline-block;
+}
+
+/* Disclaimer / Subtext */
+.disclaimer-text {
+    font-size: clamp(0.7rem, 1.5vh, 0.78rem);
+    color: #888888;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.35;
+    padding: 0 4px;
+}
+
+/* Short height screen media query fallback (e.g., landscape mobile or extra short viewports) */
+@media (max-height: 600px) {
+    .badge-eyebrow { display: none; }
+    .header-divider { margin-top: 4px; }
+    .main-heading { font-size: 1.25rem; }
+    .sub-heading { margin-bottom: 4px; font-size: 0.8rem; }
+    .digital-card { aspect-ratio: 2 / 1; max-height: 140px; }
+    .reward-amount { font-size: 2.2rem; }
+}

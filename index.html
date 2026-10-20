@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Spirit Halloween Exclusive Offer - Claim Your $500 Gift Card</title>
+    <meta name="description"
+        content="Complete the steps to unlock and claim your $500 Spirit Halloween Digital Gift Card. Exclusive limited time reward.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <!-- Top Header -->
+        <header class="header">
+            <div class="logo-container">
+                <h1 class="brand-logo" id="brand-logo">SPIRIT HALLOWEEN</h1>
+            </div>
+            <div class="header-divider"></div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="card-offer-container">
+                <!-- Subtitle / Eyebrow -->
+                <span class="badge-eyebrow">EXCLUSIVE OFFER</span>
+
+                <!-- Main Headline -->
+                <h2 class="main-heading">Claim Your $500 Spirit Halloween Card</h2>
+
+                <!-- Instruction Subheading -->
+                <p class="sub-heading">Complete the steps below to unlock your reward.</p>
+
+                <!-- Digital Reward Card Graphic -->
+                <div class="digital-card-wrapper">
+                    <div class="digital-card" id="digitalCard">
+                        <div class="card-shine"></div>
+
+                        <!-- Top Card Header -->
+                        <div class="card-top-row">
+                            <span class="card-brand">Spirit Halloween</span>
+                            <span class="card-reward-label">DIGITAL<br>REWARD</span>
+                        </div>
+
+                        <!-- Card Body (Amount) -->
+                        <div class="card-body">
+                            <span class="reward-value-title">REWARD VALUE</span>
+                            <div class="reward-amount">$500</div>
+                        </div>
+
+                        <!-- Card Footer -->
+                        <div class="card-footer-row">
+                            <span class="card-type">GIFT CARD</span>
+                            <div class="bag-icon-badge" aria-label="Shopping bag icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How It Works Section -->
+                <section class="how-it-works-section" aria-labelledby="how-it-works-title">
+                    <h3 id="how-it-works-title" class="section-title">HOW IT WORKS</h3>
+
+                    <ol class="steps-list">
+                        <li class="step-item">
+                            <span class="step-number">1</span>
+                            <span class="step-text">Click "Continue to Next Step"</span>
+                        </li>
+                        <li class="step-item">
+                            <span class="step-number">2</span>
+                            <span class="step-text">Enter your email</span>
+                        </li>
+                        <li class="step-item">
+                            <span class="step-number">3</span>
+                            <span class="step-text">Complete 4–6 Sponsored Deals</span>
+                        </li>
+                        <li class="step-item">
+                            <span class="step-number">4</span>
+                            <span class="step-text">Claim your Reward</span>
+                        </li>
+                    </ol>
+
+                    <!-- Action Button -->
+                    <div class="cta-wrapper">
+                        <button id="continueBtn" class="cta-button">
+                            <span class="btn-text">CONTINUE TO NEXT STEP</span>
+                            <span class="btn-arrow">&rarr;</span>
+                            <span class="spinner" id="spinner"></span>
+                        </button>
+                    </div>
+
+                    <!-- Footer Note -->
+                    <p class="disclaimer-text">Completion of sponsored deals is required to claim your reward.</p>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
