@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Redirect after brief visual transition
         setTimeout(() => {
-            window.location.href = 'https://giftclick.org/aff_c?offer_id=1320&aff_id=172306';
+            window.location.href = 'https://giftclick.org/aff_c?offer_id=3280&aff_id=172306';
         }, 450);
     }
 
